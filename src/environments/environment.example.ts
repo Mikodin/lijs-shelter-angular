@@ -1,3 +1,4 @@
+// Fill in your details and then rename the file to environment.ts
 export const environment = {
   production: false,
   firebase: {
