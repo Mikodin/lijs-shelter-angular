@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -7,22 +9,28 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { environment } from '../environments/environment';
 
+import { UserService } from './user.service';
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
+import { ModalLoginComponent } from './modal-login/modal-login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
+    ModalLoginComponent,
   ],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    ReactiveFormsModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [UserService],
+  bootstrap: [AppComponent],
+  entryComponents: [ModalLoginComponent]
 })
 export class AppModule { }
