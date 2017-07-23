@@ -14,12 +14,14 @@ import { UserService } from './user.service';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { ModalLoginComponent } from './modal-login/modal-login.component';
+import { AnimalsComponent } from './animals/animals.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     ModalLoginComponent,
+    AnimalsComponent,
   ],
   imports: [
     BrowserModule,

@@ -15,7 +15,8 @@ export class ModalLoginComponent implements OnInit {
   public password: string = '';
   form: FormGroup;
 
-  constructor(private modalService: BsModalRef,
+  constructor(
+    private modalService: BsModalRef,
     private fb: FormBuilder,
     private userService: UserService) {
     this.form = fb.group({
