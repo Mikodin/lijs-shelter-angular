@@ -1,0 +1,25 @@
+<div class="container">
+  <h3>Welcome to the animal shelter!</h3>
+  <button class="btn btn-primary" (click)="addAnimal()">
+    + Add Animal
+  </button>
+  <div class="row">
+    <div class="col">
+      <h3>Dogs</h3>
+      <ul>
+        <li *ngFor="let dog of dogs">
+          <span>{{dog.name}}</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col">
+      <h3>Cats</h3>
+      <ul>
+        <li *ngFor="let cat of cats | async">
+          <span>{{cat.name}}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -18,7 +18,8 @@ export class ModalLoginComponent implements OnInit {
   constructor(
     private modalService: BsModalRef,
     private fb: FormBuilder,
-    private userService: UserService) {
+    private userService: UserService
+  ) {
     this.form = fb.group({
       email: this.email,
       password: [this.password, Validators.minLength(8)],
