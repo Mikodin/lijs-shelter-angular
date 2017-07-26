@@ -9,6 +9,7 @@
       <ul>
         <li *ngFor="let dog of dogs">
           <span>{{dog.name}}</span>
+          <button class="btn btn-danger" (click)="removeAnimal(dog, 'dog')">Delete</button>
         </li>
       </ul>
     </div>
@@ -18,6 +19,7 @@
       <ul>
         <li *ngFor="let cat of cats | async">
           <span>{{cat.name}}</span>
+          <button class="btn btn-danger" (click)="removeAnimal(cat, 'cat')">Delete</button>
         </li>
       </ul>
     </div>

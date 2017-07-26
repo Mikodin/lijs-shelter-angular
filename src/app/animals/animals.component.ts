@@ -28,8 +28,8 @@ export class AnimalsComponent implements OnInit {
     * These are 2 ways to do the same thing
     */
     this.db.list('dogs').subscribe(
-      x => { console.log(x); this.dogs = x; },
-      e => console.error(e)
+      dogs => { console.log(dogs); this.dogs = dogs; },
+      err => console.error(err)
     );
 
     this.cats = this.db.list('/cats');
@@ -37,5 +37,12 @@ export class AnimalsComponent implements OnInit {
 
   public addAnimal(isDog: boolean) {
     this.modalService.show(ModalAddAnimalComponent);
+  }
+
+  public removeAnimal(animal, animalType) {
+    animalType === 'dog'
+      ? this.db.list('dogs').remove(animal)
+      : this.db.list('cats').remove(animal);
+
   }
 }

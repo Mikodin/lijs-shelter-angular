@@ -11,9 +11,9 @@ import { BsModalRef } from 'ngx-bootstrap/modal/modal-options.class';
 })
 export class ModalAddAnimalComponent implements OnInit {
   form: FormGroup;
-  name: string;
-  imageUrl: string;
-  selectedAnimal: string;
+  name: string = '';
+  imageUrl: string = '';
+  selectedAnimal: string = '';
 
   animalTypes = ['Dog', 'Cat']
 
@@ -22,6 +22,7 @@ export class ModalAddAnimalComponent implements OnInit {
     private fb: FormBuilder,
     private db: AngularFireDatabase
   ) {
+
     this.form = fb.group({
       name: this.name,
       imageUrl: this.imageUrl,
@@ -33,7 +34,12 @@ export class ModalAddAnimalComponent implements OnInit {
   }
 
   public addAnimal() {
-    var item = this.selectedAnimal === 'dog'
+    if (!this.name || !this.imageUrl || !this.selectedAnimal) {
+      alert('Please fill out all fields');
+      return;
+    }
+
+    var animalList = this.selectedAnimal.toLowerCase() === 'dog'
       ? this.db.list('/dogs')
       : this.db.list('/cats');
 
@@ -42,7 +48,8 @@ export class ModalAddAnimalComponent implements OnInit {
       imageUrl: this.imageUrl
     }
 
-    item.push(animal);
+    animalList.push(animal)
+      .then(res => this.modalService.hide())
+      .catch(err => alert(err));
   }
-
 }
