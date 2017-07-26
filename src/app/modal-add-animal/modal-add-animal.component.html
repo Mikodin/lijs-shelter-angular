@@ -7,13 +7,20 @@
 <div class="modal-body">
   <form [formGroup]="form">
     <div class="form-group">
-      <label for="email">Name</label>
+      <label for="name">Name</label>
       <input [(ngModel)]="name" class="form-control" formControlName="name" placeholder="Name">
+      <label for="imageUrl">Image Url</label>
+      <input [(ngModel)]="imageUrl" class="form-control" formControlName="imageUrl" placeholder="Image Url">
     </div>
+
+    <label for="animalType">Animal Type</label>
+    <select class="form-control" formControlName="selectedAnimal" [(ngModel)]="selectedAnimal">
+        <option *ngFor="let animal of animalTypes" [value]="animal">{{animal}}</option>
+    </select>
   </form>
 </div>
 <div class="modal-footer">
-  <button type="button" class="btn btn-default pull-right" (click)="login()">
+  <button type="button" class="btn btn-default pull-right" (click)="addAnimal()">
     Add Animal
   </button>
 </div>

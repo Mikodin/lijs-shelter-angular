@@ -31,6 +31,7 @@ import { ModalAddAnimalComponent } from './modal-add-animal/modal-add-animal.com
     AngularFireAuthModule,
     AngularFireDatabaseModule,
     ModalModule.forRoot(),
+    FormsModule,
     ReactiveFormsModule,
   ],
   providers: [UserService],
