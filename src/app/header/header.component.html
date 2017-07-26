@@ -7,8 +7,11 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <button class="btn btn-outline-success" (click)="openModalLogin()">
+        <button *ngIf="!isLoggedIn" class="btn btn-outline-success" (click)="openModalLogin()">
           Login
+        </button>
+        <button *ngIf="isLoggedIn" class="btn btn-outline-success" (click)="logout()">
+          Log Out
         </button>
       </li>
     </ul>

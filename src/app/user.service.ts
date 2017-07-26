@@ -18,4 +18,8 @@ export class UserService {
   public register(email: string, password: string): firebase.Promise<any> {
     return this.fireAuth.auth.createUserWithEmailAndPassword(email, password);
   }
+
+  public logout() {
+    this.fireAuth.auth.signOut();
+  }
 }

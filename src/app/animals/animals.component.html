@@ -1,6 +1,6 @@
 <div class="container">
   <h3>Welcome to the animal shelter!</h3>
-  <button class="btn btn-primary" (click)="addAnimal()">
+  <button *ngIf="isLoggedIn" (click)="addAnimal()" class="btn btn-primary">
     + Add Animal
   </button>
   <div class="row">
@@ -8,7 +8,8 @@
       <h3>Dogs</h3>
       <ul>
         <li *ngFor="let dog of dogs">
-          <button class="btn btn-outline-danger btn-sm" (click)="removeAnimal(dog, 'dog')">Delete</button>
+          <button *ngIf="isLoggedIn" (click)="removeAnimal(dog, 'dog')" class="btn btn-outline-danger btn-sm">Delete</button>
+          <img src="{{dog.imgUrl}}" style="width:100px;height:100px;">
           <span>{{dog.name}}</span>
         </li>
       </ul>
@@ -18,7 +19,8 @@
       <h3>Cats</h3>
       <ul>
         <li *ngFor="let cat of cats | async">
-          <button class="btn btn-outline-danger btn-sm" (click)="removeAnimal(cat, 'cat')">Delete</button>
+          <button *ngIf="isLoggedIn" (click)="removeAnimal(cat, 'cat')" class="btn btn-outline-danger btn-sm">Delete</button>
+          <img src="{{cat.imgUrl}}" style="width:100px;height:100px;">
           <span>{{cat.name}}</span>
         </li>
       </ul>

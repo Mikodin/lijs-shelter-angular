@@ -32,12 +32,19 @@ export class ModalLoginComponent implements OnInit {
   register() {
     this.userService.register(this.email, this.password)
       .then(res => alert('Success'))
-      .catch(err => console.log(err));
+      .catch(err => alert(err));
   }
 
   login() {
     this.userService.login(this.email, this.password)
-      .then(res => this.modalService.hide())
+      .then(res => {
+        this.modalService.hide()
+        console.log(res);
+        console.log(this.userService.user.subscribe(
+          (res) => console.log(res),
+          (err) => console.error(err)
+        ));
+      })
       .catch(err => console.log(err));
   }
 }
