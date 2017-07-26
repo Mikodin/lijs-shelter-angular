@@ -8,8 +8,8 @@
       <h3>Dogs</h3>
       <ul>
         <li *ngFor="let dog of dogs">
+          <button class="btn btn-outline-danger btn-sm" (click)="removeAnimal(dog, 'dog')">Delete</button>
           <span>{{dog.name}}</span>
-          <button class="btn btn-danger" (click)="removeAnimal(dog, 'dog')">Delete</button>
         </li>
       </ul>
     </div>
@@ -18,8 +18,8 @@
       <h3>Cats</h3>
       <ul>
         <li *ngFor="let cat of cats | async">
+          <button class="btn btn-outline-danger btn-sm" (click)="removeAnimal(cat, 'cat')">Delete</button>
           <span>{{cat.name}}</span>
-          <button class="btn btn-danger" (click)="removeAnimal(cat, 'cat')">Delete</button>
         </li>
       </ul>
     </div>
