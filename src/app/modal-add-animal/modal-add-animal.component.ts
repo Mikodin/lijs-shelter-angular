@@ -45,7 +45,7 @@ export class ModalAddAnimalComponent implements OnInit {
 
     var animal = {
       name: this.name,
-      imageUrl: this.imageUrl
+      imgUrl: this.imageUrl
     }
 
     animalList.push(animal)

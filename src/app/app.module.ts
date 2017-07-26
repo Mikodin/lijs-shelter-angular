@@ -16,6 +16,7 @@ import { HeaderComponent } from './header/header.component';
 import { ModalLoginComponent } from './modal-login/modal-login.component';
 import { AnimalsComponent } from './animals/animals.component';
 import { ModalAddAnimalComponent } from './modal-add-animal/modal-add-animal.component';
+import { AnimalComponent } from './animal/animal.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ModalAddAnimalComponent } from './modal-add-animal/modal-add-animal.com
     ModalLoginComponent,
     AnimalsComponent,
     ModalAddAnimalComponent,
+    AnimalComponent,
   ],
   imports: [
     BrowserModule,

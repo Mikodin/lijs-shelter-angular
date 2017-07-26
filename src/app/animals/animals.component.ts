@@ -8,7 +8,6 @@ import { UserService } from '../user.service';
 import {
   AngularFireDatabase,
   FirebaseListObservable,
-  FirebaseObjectObservable
 } from 'angularfire2/database';
 
 @Component({
@@ -50,10 +49,5 @@ export class AnimalsComponent implements OnInit {
     this.modalService.show(ModalAddAnimalComponent);
   }
 
-  public removeAnimal(animal, animalType) {
-    animalType === 'dog'
-      ? this.db.list('dogs').remove(animal)
-      : this.db.list('cats').remove(animal);
 
-  }
 }
